@@ -1,8 +1,6 @@
-### GET request to example server
-GET https://examples.http-client.intellij.net/get
-    ?generated-in=IntelliJ IDEA
-
-###
+### get account
+GET http://localhost:8080/account?user_id=1
+Content-Type: application/json
 
 ### create account
 POST http://localhost:8080/account

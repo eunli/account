@@ -12,6 +12,7 @@ import javax.persistence.*;
 import java.time.LocalDateTime;
 
 import static com.example.account.type.ErrorCode.AMOUNT_EXCEED_BALANCE;
+import static com.example.account.type.ErrorCode.INVALID_REQUEST;
 
 @Getter
 @Setter
@@ -48,5 +49,12 @@ public class Account {
             throw new AccountException(AMOUNT_EXCEED_BALANCE);
         }
         balance -= amount;
+    }
+
+    public void cancelBalance(Long amount) {
+        if (amount < 0) {
+            throw new AccountException(INVALID_REQUEST);
+        }
+        balance += amount;
     }
 }
